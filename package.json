@@ -13,5 +13,21 @@
   },
   "devDependencies": {
     "tree-sitter-cli": "^0.20.8"
-  }
+  },
+  "files": [
+    "src",
+    "bindings/node",
+    "queries"
+  ],
+  "tree-sitter": [
+    {
+      "scope": "source.rebel",
+      "file-types": [
+        "rbl"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ]
+    }
+  ]
 }
