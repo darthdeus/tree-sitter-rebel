@@ -1,0 +1,33 @@
+extern "C" fn assert_eq(a: i64, b: i64); 
+
+extern "C" fn run_test() {
+    test_point_add();
+}
+
+struct Point {
+    x: i64,
+    y: i64,
+    z: i64,
+}
+
+fn new_point(x: i64, y: i64, z: i64) -> Point {
+    return Point { x: x, y: y, z: z };
+}
+
+fn add_points(a: Point, b: Point) -> Point {
+    return Point {
+        x: a.x + b.x,
+        y: a.y + b.y,
+        z: a.z + b.z
+    };
+}
+
+fn test_point_add() -> i64 {
+    let a: Point = new_point(1, 2, 3);
+    let b: Point = new_point(4, 5, 6);
+    let c: Point = add_points(a, b);
+    assert_eq(c.x, 5);
+    assert_eq(c.y, 7);
+    assert_eq(c.z, 9);
+    return 0;
+}
