@@ -3,7 +3,7 @@
 default: test
 
 generate:
-	tree-sitter generate
+	arch -arm64 tree-sitter generate
 
 test:
-	tree-sitter parse examples/a.rbl
+	arch -arm64 tree-sitter parse examples/a.rbl
