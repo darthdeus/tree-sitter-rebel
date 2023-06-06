@@ -5,5 +5,5 @@ default: test
 generate:
 	arch -arm64 tree-sitter generate
 
-test:
-	arch -arm64 tree-sitter parse examples/a.rbl
+test: generate
+	arch -arm64 tree-sitter parse examples/simple.rbl
