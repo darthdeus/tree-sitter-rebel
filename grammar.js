@@ -59,7 +59,6 @@ module.exports = grammar({
         $.field_access,
         $.paren_expr,
         $.struct_literal,
-        // $.ref_alloc,
         $.block
       ),
 
@@ -92,6 +91,7 @@ module.exports = grammar({
     field_access: ($) => seq($._expression, ".", $.identifier),
 
     _type_expr: ($) => choice($.identifier, $.primitive_type, $.generic_type),
+
     generic_type: ($) =>
       seq(
         field("type", $.identifier),
@@ -101,7 +101,6 @@ module.exports = grammar({
       ),
 
     paren_expr: ($) => seq("(", $._expression, ")"),
-
     return: ($) => seq("return", $._expression),
 
     let: ($) =>
