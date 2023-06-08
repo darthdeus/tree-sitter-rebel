@@ -13,5 +13,6 @@ generate:
 	$(CMD_PREFIX) tree-sitter generate
 
 test: generate
-	$(CMD_PREFIX) tree-sitter parse examples/simple.rbl
+	$(CMD_PREFIX) tree-sitter parse examples/big.rbl
+	# $(CMD_PREFIX) tree-sitter parse examples/simple.rbl
 	# $(CMD_PREFIX) tree-sitter parse examples/a.rbl

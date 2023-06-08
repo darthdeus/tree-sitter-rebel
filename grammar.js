@@ -58,7 +58,7 @@ module.exports = grammar({
 
     bin_op: ($) => choice("+", "-", "*", "/"),
 
-    un_op: ($) => choice("-", "*"),
+    un_op: ($) => choice("-", "*", "&"),
 
     expression: ($) =>
       choice(
