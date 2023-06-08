@@ -9,33 +9,3 @@ extern "C" fn run_test() {
 fn alloc_i64_array(len: i64) -> RawPtr<i64> {
     return rust_alloc(len * 8, 8) as RawPtr<i64>;
 }
-
-fn test_raw_ptr_alloc() -> i64 {
-    // Allocate the array
-    let buf: RawPtr<i64> = alloc_i64_array(4);
-
-    // Initialize the array
-    *buf = 42;
-    *(buf + 1) = 84;
-    *(buf + 2) = 168;
-    *(buf + 3) = 336;
-
-    // Access the elements
-    let a : i64 = *(buf+0);
-    let b : i64 = *(buf+1);
-    let c : i64 = *(buf+2);
-    let d : i64 = *(buf+3);
-
-    assert_eq(a, 42);
-    assert_eq(b, 84);
-    assert_eq(c, 168);
-    assert_eq(d, 336);
-
-    rust_free(buf as RawPtr<u8>, 32, 8);
-
-    let result : i64 = a + b + c + d;
-
-    assert_eq(result, 630);
-
-    return a + b + c + d;
-}

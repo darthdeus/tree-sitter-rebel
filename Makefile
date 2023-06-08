@@ -1,4 +1,4 @@
-.PHONY: generate test
+.PHONY: generate test both
 
 OS := $(shell uname)
 ifeq ($(OS),Darwin)
@@ -7,12 +7,18 @@ else
 	CMD_PREFIX :=
 endif
 
-default: test
+# default: highlight
+default: both
+
+both: test highlight
 
 generate:
 	$(CMD_PREFIX) tree-sitter generate
 
+highlight:
+	$(CMD_PREFIX) tree-sitter highlight examples/a.rbl
+
 test: generate
-	$(CMD_PREFIX) tree-sitter parse examples/big.rbl
+	# $(CMD_PREFIX) tree-sitter parse examples/big.rbl
 	# $(CMD_PREFIX) tree-sitter parse examples/simple.rbl
-	# $(CMD_PREFIX) tree-sitter parse examples/a.rbl
+	$(CMD_PREFIX) tree-sitter parse examples/a.rbl

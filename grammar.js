@@ -12,13 +12,9 @@ module.exports = grammar({
   rules: {
     source_file: ($) => repeat($.module),
 
-    string: ($) => seq('"', repeat(choice(/[^"\\]/, /\\./)), '"'),
+    module: ($) =>
+      seq(choice($.defined_function, $.extern_function, $.struct, $.comment)),
 
-    module: ($) => seq($.item),
-
-    item: ($) => choice($.function, $.struct, $.comment),
-
-    function: ($) => choice($.defined_function, $.extern_function),
     defined_function: ($) =>
       seq(
         "fn",
@@ -30,8 +26,7 @@ module.exports = grammar({
 
     extern_function: ($) =>
       seq(
-        "extern",
-        '"C"',
+        $.extern,
         "fn",
         $.identifier,
         $.parameter_list,
@@ -39,7 +34,11 @@ module.exports = grammar({
         choice(";", $.block)
       ),
 
-    extern: ($) => seq("extern", $.string),
+    extern: ($) => seq("extern", $.call_conv),
+
+    call_conv: ($) => "\"C\"",
+
+    string: ($) => seq('"', repeat(choice(/[^"\\]/, /\\./)), '"'),
 
     parameter_list: ($) => seq("(", commaSep($.parameter), ")"),
 

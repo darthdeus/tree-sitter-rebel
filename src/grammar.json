@@ -8,71 +8,29 @@
         "name": "module"
       }
     },
-    "string": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "\""
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "PATTERN",
-                "value": "[^\"\\\\]"
-              },
-              {
-                "type": "PATTERN",
-                "value": "\\\\."
-              }
-            ]
-          }
-        },
-        {
-          "type": "STRING",
-          "value": "\""
-        }
-      ]
-    },
     "module": {
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "item"
-        }
-      ]
-    },
-    "item": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "function"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "struct"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "comment"
-        }
-      ]
-    },
-    "function": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "defined_function"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "extern_function"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "defined_function"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "extern_function"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "struct"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "comment"
+            }
+          ]
         }
       ]
     },
@@ -122,12 +80,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "extern"
-        },
-        {
-          "type": "STRING",
-          "value": "\"C\""
+          "type": "SYMBOL",
+          "name": "extern"
         },
         {
           "type": "STRING",
@@ -186,7 +140,40 @@
         },
         {
           "type": "SYMBOL",
-          "name": "string"
+          "name": "call_conv"
+        }
+      ]
+    },
+    "call_conv": {
+      "type": "STRING",
+      "value": "\"C\""
+    },
+    "string": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[^\"\\\\]"
+              },
+              {
+                "type": "PATTERN",
+                "value": "\\\\."
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\""
         }
       ]
     },

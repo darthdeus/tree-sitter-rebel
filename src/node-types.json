@@ -136,6 +136,21 @@
     }
   },
   {
+    "type": "extern",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "call_conv",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "extern_function",
     "named": true,
     "fields": {},
@@ -145,6 +160,10 @@
       "types": [
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "extern",
           "named": true
         },
         {
@@ -235,25 +254,6 @@
     }
   },
   {
-    "type": "function",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "defined_function",
-          "named": true
-        },
-        {
-          "type": "extern_function",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "function_call",
     "named": true,
     "fields": {},
@@ -267,29 +267,6 @@
         },
         {
           "type": "identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "item",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "function",
-          "named": true
-        },
-        {
-          "type": "struct",
           "named": true
         }
       ]
@@ -327,7 +304,19 @@
       "required": true,
       "types": [
         {
-          "type": "item",
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "defined_function",
+          "named": true
+        },
+        {
+          "type": "extern_function",
+          "named": true
+        },
+        {
+          "type": "struct",
           "named": true
         }
       ]
@@ -615,10 +604,6 @@
     "named": false
   },
   {
-    "type": "\"C\"",
-    "named": false
-  },
-  {
     "type": "&",
     "named": false
   },
@@ -689,6 +674,10 @@
   {
     "type": "bool",
     "named": false
+  },
+  {
+    "type": "call_conv",
+    "named": true
   },
   {
     "type": "comment",

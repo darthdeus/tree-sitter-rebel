@@ -23,7 +23,8 @@
     {
       "scope": "source.rebel",
       "file-types": [
-        "rbl"
+        "rbl",
+        "rebel"
       ],
       "highlights": [
         "queries/highlights.scm"
