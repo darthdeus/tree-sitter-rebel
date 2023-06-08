@@ -89,9 +89,7 @@ fn test_block_as_expr2()  {
     };
     assert_eq(x.x, 42);
     assert_eq(x.y, 43);
-}
-
-extern "C" fn assert_eq(a: i64, b: i64); 
+}extern "C" fn assert_eq(a: i64, b: i64); 
 extern "C" fn print_int(a: i64);
 
 extern "C" fn run_test() {

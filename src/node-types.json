@@ -281,6 +281,10 @@
       "required": true,
       "types": [
         {
+          "type": "comment",
+          "named": true
+        },
+        {
           "type": "function",
           "named": true
         },

@@ -16,7 +16,7 @@ module.exports = grammar({
 
     module: ($) => seq($.item),
 
-    item: ($) => choice($.function, $.struct),
+    item: ($) => choice($.function, $.struct, $.comment),
 
     function: ($) => choice($.defined_function, $.extern_function),
     defined_function: ($) =>
