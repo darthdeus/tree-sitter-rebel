@@ -1,5 +1,9 @@
 extern "C" fn print(x: u8);
 
+extern "C" fn assert_eq(a: i64, b: i64); 
+extern "C" fn rust_alloc(size: i64, align: i64) -> RawPtr<u8>; 
+extern "C" fn rust_free(ptr: RawPtr<u8>, size: i64, align: i64); 
+
 fn test_raw_ptr_alloc(x: u8) {
   123
 }

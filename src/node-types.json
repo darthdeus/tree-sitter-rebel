@@ -72,6 +72,10 @@
         {
           "type": "parameter_list",
           "named": true
+        },
+        {
+          "type": "type_expr",
+          "named": true
         }
       ]
     }
@@ -145,6 +149,10 @@
         },
         {
           "type": "parameter_list",
+          "named": true
+        },
+        {
+          "type": "type_expr",
           "named": true
         }
       ]
@@ -576,10 +584,6 @@
     "named": false
   },
   {
-    "type": "&",
-    "named": false
-  },
-  {
     "type": "(",
     "named": false
   },
@@ -596,7 +600,15 @@
     "named": false
   },
   {
+    "type": ",",
+    "named": false
+  },
+  {
     "type": "-",
+    "named": false
+  },
+  {
+    "type": "->",
     "named": false
   },
   {
@@ -617,6 +629,18 @@
   },
   {
     "type": "=",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": "RawPtr<",
+    "named": false
+  },
+  {
+    "type": "Ref<",
     "named": false
   },
   {

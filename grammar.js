@@ -1,3 +1,7 @@
+function commaSep(rule) {
+  return optional(seq(rule, repeat(seq(",", rule))));
+}
+
 module.exports = grammar({
   name: "rebel",
 
@@ -11,14 +15,29 @@ module.exports = grammar({
     item: ($) => choice($.function, $.struct),
 
     function: ($) => choice($.defined_function, $.extern_function),
-    defined_function: ($) => seq("fn", $.identifier, $.parameter_list, $.block),
+    defined_function: ($) =>
+      seq(
+        "fn",
+        $.identifier,
+        $.parameter_list,
+        optional(seq("->", $.type_expr)),
+        $.block
+      ),
 
     extern_function: ($) =>
-      seq("extern", "\"C\"", "fn", $.identifier, $.parameter_list, ";"),
+      seq(
+        "extern",
+        '"C"',
+        "fn",
+        $.identifier,
+        $.parameter_list,
+        optional(seq("->", $.type_expr)),
+        ";"
+      ),
 
     extern: ($) => seq("extern", $.string),
 
-    parameter_list: ($) => seq("(", repeat($.parameter), ")"),
+    parameter_list: ($) => seq("(", commaSep($.parameter), ")"),
 
     parameter: ($) => seq($.identifier, ":", $.type_expr),
 
@@ -97,9 +116,9 @@ module.exports = grammar({
         "bool"
       ),
 
-    raw_ptr: ($) => seq("*", $.type_expr),
+    raw_ptr: ($) => seq("RawPtr<", $.type_expr, ">"),
 
-    ref: ($) => seq("&", $.type_expr),
+    ref: ($) => seq("Ref<", $.type_expr, ">"),
 
     uninit: ($) => seq("uninit", $.type_expr),
   },
