@@ -2,6 +2,10 @@ function commaSep(rule) {
   return optional(seq(rule, repeat(seq(",", rule))));
 }
 
+function semicolonSep(rule) {
+  return optional(seq(rule, repeat(seq(";", rule))));
+}
+
 module.exports = grammar({
   name: "rebel",
 
@@ -32,7 +36,7 @@ module.exports = grammar({
         $.identifier,
         $.parameter_list,
         optional(seq("->", $.type_expr)),
-        ";"
+        choice(";", $.block)
       ),
 
     extern: ($) => seq("extern", $.string),
@@ -44,8 +48,9 @@ module.exports = grammar({
     struct: ($) => seq("struct", $.identifier, $.fields),
 
     fields: ($) => seq("{", repeat($.field), "}"),
+    // fields: ($) => seq("{", commaSep($.field), "}"),
 
-    field: ($) => seq($.identifier, ":", $.type_expr),
+    field: ($) => seq($.identifier, ":", $.type_expr, optional(",")),
 
     identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
@@ -72,9 +77,16 @@ module.exports = grammar({
       ),
 
     function_call: ($) =>
-      prec(1, seq($.identifier, "(", repeat($.expression), ")")),
+      prec(1, seq($.identifier, "(", commaSep($.expression), ")")),
 
-    struct_literal: ($) => prec(1, seq($.identifier, $.fields)),
+    struct_literal: ($) => prec(1, seq($.identifier, $.field_values)),
+
+    field_values: ($) =>
+      seq(
+        "{",
+        repeat(seq($.identifier, ":", $.expression, optional(","))),
+        "}"
+      ),
 
     unary_op: ($) => prec(2, seq($.un_op, $.expression)),
 
@@ -82,7 +94,13 @@ module.exports = grammar({
 
     typecast: ($) => seq($.expression, "as", $.type_expr),
 
-    statement: ($) => choice($.expression, $.return, $.let, $.assignment),
+    statement: ($) =>
+      seq(
+        choice($.comment, $.expression, $.return, $.let, $.assignment),
+        optional(";")
+      ),
+
+    comment: ($) => token(seq("//", /.*/)),
 
     block: ($) => seq("{", repeat($.statement), "}"),
 
@@ -97,7 +115,14 @@ module.exports = grammar({
 
     return: ($) => seq("return", $.expression),
 
-    let: ($) => seq("let", $.identifier, "=", $.expression),
+    let: ($) =>
+      seq(
+        "let",
+        $.identifier,
+        optional(seq(":", $.type_expr)),
+        "=",
+        $.expression
+      ),
 
     assignment: ($) => seq($.expression, "=", $.expression),
 
