@@ -7,5 +7,7 @@ extern "C" fn run_test() {
 }
 
 fn alloc_i64_array(len: i64) -> RawPtr<i64> {
+    let a = &b + 1;
+
     return rust_alloc(len * 8, 8) as RawPtr<i64>;
 }

@@ -1,3 +1,3 @@
-fn run_test() {
+fn run_test() -> Ref<A, B> {
     let n_addr: RawPtr<Nested> = &foo.n;
 }

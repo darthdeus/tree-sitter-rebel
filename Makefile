@@ -7,8 +7,9 @@ else
 	CMD_PREFIX :=
 endif
 
-# default: highlight
-default: both
+default: highlight
+# default: both
+# default: simple
 
 both: test highlight
 
@@ -22,3 +23,6 @@ test: generate
 	# $(CMD_PREFIX) tree-sitter parse examples/big.rbl
 	# $(CMD_PREFIX) tree-sitter parse examples/simple.rbl
 	$(CMD_PREFIX) tree-sitter parse examples/a.rbl
+
+simple: generate
+	$(CMD_PREFIX) tree-sitter parse examples/simple.rbl

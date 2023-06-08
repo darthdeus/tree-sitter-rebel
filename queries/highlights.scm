@@ -7,15 +7,13 @@
   "as"
   "extern"
   "struct"
-  "uninit"
 ] @keyword
 
 ; Comments
 (comment) @comment
 
 ; Function definitions and calls
-(defined_function (identifier) @function)
-(extern_function (identifier) @function.macro)
+(function (identifier) @function)
 (function_call (identifier) @function)
 
 ; Variables
@@ -25,12 +23,16 @@
 
 ; Type Expressions
 (primitive_type) @type
-(type_expr (identifier) @type)
 
 ; Constants
 (string) @string
 (number) @number
-(call_conv) @string
+
+(extern_modifier) @string
+
+(generic_type
+  "<" @punctuation.bracket
+  ">" @punctuation.bracket)
 
 ; Binary operations
 (binary_op (bin_op) @operator)
@@ -45,4 +47,3 @@
 "as" @keyword.operator
 "extern" @keyword.directive
 "struct" @keyword.type
-"uninit" @keyword.directive
