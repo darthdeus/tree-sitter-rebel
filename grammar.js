@@ -2,23 +2,7 @@ module.exports = grammar({
   name: "rebel",
 
   rules: {
-    // TODO: add the actual grammar rules
     source_file: ($) => repeat($.module),
-
-    // _definition: ($) => seq("fn", $.identifier, $.parameter_list, $.block),
-    //
-    // identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
-    //
-    // parameter_list: ($) => seq("(", $.parameters, ")"),
-    //
-    // parameters: ($) => seq($.identifier, repeat(seq(",", $.identifier))),
-    //
-    // expression: ($) => choice($.identifier, $.literal),
-    //
-    // assignment: ($) => seq($.identifier, "=", $.expression),
-    //
-    // literal: ($) => choice($.number, $.string),
-    //
 
     string: ($) => seq('"', repeat(choice(/[^"\\]/, /\\./)), '"'),
 
@@ -26,7 +10,13 @@ module.exports = grammar({
 
     item: ($) => choice($.function, $.struct),
 
-    function: ($) => seq("fn", $.identifier, $.parameter_list, $.block),
+    function: ($) => choice($.defined_function, $.extern_function),
+    defined_function: ($) => seq("fn", $.identifier, $.parameter_list, $.block),
+
+    extern_function: ($) =>
+      seq("extern", "\"C\"", "fn", $.identifier, $.parameter_list, ";"),
+
+    extern: ($) => seq("extern", $.string),
 
     parameter_list: ($) => seq("(", repeat($.parameter), ")"),
 
@@ -58,15 +48,18 @@ module.exports = grammar({
         $.field_access,
         $.paren_expr,
         $.struct_literal,
-        $.ref_alloc,
+        // $.ref_alloc,
         $.block
       ),
 
-    function_call: ($) => seq($.identifier, repeat($.expression)),
+    function_call: ($) =>
+      prec(1, seq($.identifier, "(", repeat($.expression), ")")),
 
-    unary_op: ($) => seq($.un_op, $.expression),
+    struct_literal: ($) => prec(1, seq($.identifier, $.fields)),
 
-    binary_op: ($) => seq($.expression, $.bin_op, $.expression),
+    unary_op: ($) => prec(2, seq($.un_op, $.expression)),
+
+    binary_op: ($) => prec.left(1, seq($.expression, $.bin_op, $.expression)),
 
     typecast: ($) => seq($.expression, "as", $.type_expr),
 
@@ -81,9 +74,7 @@ module.exports = grammar({
 
     paren_expr: ($) => seq("(", $.expression, ")"),
 
-    struct_literal: ($) => seq($.identifier, $.fields),
-
-    ref_alloc: ($) => seq("&", $.expression),
+    // ref_alloc: ($) => seq("&", $.expression),
 
     return: ($) => seq("return", $.expression),
 
