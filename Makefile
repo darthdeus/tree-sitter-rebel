@@ -1,4 +1,4 @@
-.PHONY: generate test both
+.PHONY: generate test both test-parse simple
 
 OS := $(shell uname)
 ifeq ($(OS),Darwin)
@@ -12,11 +12,15 @@ endif
 FILE=examples/err.rbl
 
 default: test
+# default: test-parse
 # default: highlight
 # default: both
 # default: simple
 
 both: test highlight
+
+test: generate
+	$(CMD_PREFIX) tree-sitter test
 
 generate:
 	$(CMD_PREFIX) tree-sitter generate
@@ -24,7 +28,7 @@ generate:
 highlight:
 	$(CMD_PREFIX) tree-sitter highlight $(FILE)
 
-test: generate
+test-parse: generate
 	$(CMD_PREFIX) tree-sitter parse $(FILE)
 	# $(CMD_PREFIX) tree-sitter parse examples/big.rbl
 	# $(CMD_PREFIX) tree-sitter parse examples/simple.rbl

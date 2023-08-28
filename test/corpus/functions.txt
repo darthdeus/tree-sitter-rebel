@@ -1,0 +1,17 @@
+=========
+Functions
+=========
+
+fn x() -> i32 {
+    return 0;
+}
+
+---
+
+(source_file
+    (function
+        (identifier)
+        (primitive_type)
+        (block
+            (statement
+                (return (number))))))
