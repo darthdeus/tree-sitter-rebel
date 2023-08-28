@@ -237,7 +237,7 @@
       "members": [
         {
           "type": "STRING",
-          "value": "$"
+          "value": "#"
         },
         {
           "type": "FIELD",
@@ -277,8 +277,23 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "block"
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "FIELD",
+          "name": "methods",
+          "content": {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "function"
+            }
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
         }
       ]
     },
@@ -347,6 +362,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "index"
+        },
+        {
+          "type": "SYMBOL",
           "name": "paren_expr"
         },
         {
@@ -362,6 +381,39 @@
           "name": "block"
         }
       ]
+    },
+    "index": {
+      "type": "PREC",
+      "value": 5,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "base",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "["
+          },
+          {
+            "type": "FIELD",
+            "name": "index",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "]"
+          }
+        ]
+      }
     },
     "extern_modifier": {
       "type": "SEQ",

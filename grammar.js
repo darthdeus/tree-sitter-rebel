@@ -64,9 +64,16 @@ module.exports = grammar({
 
     macro_def: ($) => seq("macro", field("name", $.identifier)),
     macro_expr: ($) =>
-      seq("$", field("name", $.identifier), "(", $.identifier, ")"),
+      seq("#", field("name", $.identifier), "(", $.identifier, ")"),
 
-    impl_block: ($) => seq("impl", field("type", $._type_expr), $.block),
+    impl_block: ($) =>
+      seq(
+        "impl",
+        field("type", $._type_expr),
+        "{",
+        field("methods", repeat($.function)),
+        "}",
+      ),
 
     enum_variants: ($) => repeat1(seq($.identifier, optional($._type_expr))),
 
@@ -81,10 +88,22 @@ module.exports = grammar({
         $.binary_op,
         $.typecast,
         $.field_access,
+        $.index,
         $.paren_expr,
         $.struct_literal,
         $.array_literal,
         $.block,
+      ),
+
+    index: ($) =>
+      prec(
+        5,
+        seq(
+          field("base", $._expression),
+          "[",
+          field("index", $._expression),
+          "]",
+        ),
       ),
 
     extern_modifier: ($) => seq("extern", field("call_conv", '"C"')),

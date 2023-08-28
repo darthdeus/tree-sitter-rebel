@@ -13,8 +13,8 @@ FILE=examples/fn.rbl
 # FILE=examples/err.rbl
 
 default: test
-# default: test-parse
-# default: highlight
+default: test-parse
+default: highlight
 # default: both
 # default: simple
 

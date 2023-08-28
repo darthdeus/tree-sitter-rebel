@@ -7,14 +7,15 @@
   "as"
   "extern"
   "struct"
+  "impl"
 ] @keyword
 
 ; Comments
 (comment) @comment
 
-; Function definitions and calls
+; ; Function definitions and calls
 (function (identifier) @function)
-(function_call (identifier) @function)
+; (function_call (identifier) @function)
 
 ; Variables
 (parameter (identifier) @variable.parameter)
@@ -48,3 +49,4 @@
 "as" @keyword.operator
 "extern" @keyword.directive
 "struct" @keyword.type
+"impl" @keyword.directive

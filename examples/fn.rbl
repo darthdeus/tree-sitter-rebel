@@ -2,3 +2,20 @@ fn x() -> i32 {
     print("a");
     3
 }
+
+impl Foo {
+    fn foo() {
+
+    }
+}
+
+#def_arena(Enemy)
+
+global ENEMIES: EnemyArena = EnemyArena_new();
+global SAD_ENEMY: i32 = ENEMIES[0];
+
+fn f() {
+    ENEMIES[0]
+}
+
+
