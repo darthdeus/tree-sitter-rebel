@@ -77,7 +77,7 @@
           "name": "parameters",
           "content": {
             "type": "SYMBOL",
-            "name": "_parameter_list"
+            "name": "parameter_list"
           }
         },
         {
@@ -380,7 +380,7 @@
         }
       ]
     },
-    "_parameter_list": {
+    "parameter_list": {
       "type": "SEQ",
       "members": [
         {

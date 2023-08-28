@@ -36,7 +36,7 @@ module.exports = grammar({
         field("modifier", optional($.extern_modifier)),
         "fn",
         field("name", $.identifier),
-        field("parameters", $._parameter_list),
+        field("parameters", $.parameter_list),
         optional(seq("->", field("return_type", $._type_expr))),
         choice(";", $.block),
       ),
@@ -89,7 +89,7 @@ module.exports = grammar({
 
     extern_modifier: ($) => seq("extern", field("call_conv", '"C"')),
 
-    _parameter_list: ($) => seq("(", commaSep($.parameter), ")"),
+    parameter_list: ($) => seq("(", commaSep($.parameter), ")"),
     parameter: ($) => seq($.identifier, ":", $._type_expr),
 
     statement: ($) =>

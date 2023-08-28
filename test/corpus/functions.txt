@@ -11,6 +11,7 @@ fn x() -> i32 {
 (source_file
     (function
         (identifier)
+        (parameter_list)
         (primitive_type)
         (block
             (statement
@@ -29,5 +30,56 @@ fn x() -> i32 {
 (source_file
     (function
         (identifier)
+        (parameter_list)
         (primitive_type)
         (block (number))))
+
+=========================
+Implicit return with body
+=========================
+
+fn x() -> i32 {
+    println("hello");
+    0
+}
+
+---
+
+(source_file
+    (function
+        (identifier)
+        (parameter_list)
+        (primitive_type)
+        (block 
+            (statement
+                (function_call
+                    (identifier)
+                    (string)))
+            (number))))
+
+
+=========================
+Big function
+=========================
+
+extern "C" fn f(x: f32, y: Foo) -> Bar {
+    println("hello");
+    0
+}
+
+---
+
+(source_file
+    (function
+        modifier: (extern_modifier)
+        name: (identifier)
+        parameters: (parameter_list
+            (parameter (identifier) (primitive_type))
+            (parameter (identifier) (identifier)))
+        return_type: (identifier)
+        (block 
+            statements: (statement
+                (function_call
+                    (identifier)
+                    (string)))
+            return_expr: (number))))
