@@ -8,8 +8,9 @@ else
 endif
 
 # FILE=examples/a.rbl
+FILE=examples/fn.rbl
 # FILE=examples/big.rbl
-FILE=examples/err.rbl
+# FILE=examples/err.rbl
 
 default: test
 # default: test-parse
