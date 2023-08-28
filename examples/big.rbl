@@ -1,3 +1,20 @@
+global TEXTURES : Vec<Texture2D> = [];
+global SPRITE_SIZE : u64 = 32;
+
+extern "C" fn begin(ctx: GameContext, soft: bool) {
+    if !soft {
+        SetTargetFPS(60);
+    }
+
+    push(TEXTURES, LoadTexture(cstr("assets/carrot.png")));
+}
+
+
+extern "C" fn end(ctx: GameContext) {
+    CloseWindow();
+}
+
+
 extern "C" fn genf() -> Ref<i32>;
 extern "C" fn assert_eq(a: i64, b: i64); 
 

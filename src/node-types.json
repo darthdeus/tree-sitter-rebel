@@ -1,5 +1,68 @@
 [
   {
+    "type": "array_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "array_literal",
+          "named": true
+        },
+        {
+          "type": "binary_op",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "field_access",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "paren_expr",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct_literal",
+          "named": true
+        },
+        {
+          "type": "typecast",
+          "named": true
+        },
+        {
+          "type": "unary_op",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "assignment",
     "named": true,
     "fields": {},
@@ -8,11 +71,19 @@
       "required": true,
       "types": [
         {
+          "type": "array_literal",
+          "named": true
+        },
+        {
           "type": "binary_op",
           "named": true
         },
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
           "named": true
         },
         {
@@ -68,6 +139,10 @@
       "required": true,
       "types": [
         {
+          "type": "array_literal",
+          "named": true
+        },
+        {
           "type": "bin_op",
           "named": true
         },
@@ -77,6 +152,10 @@
         },
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
           "named": true
         },
         {
@@ -134,6 +213,86 @@
     }
   },
   {
+    "type": "condition",
+    "named": true,
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array_literal",
+            "named": true
+          },
+          {
+            "type": "binary_op",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "field_access",
+            "named": true
+          },
+          {
+            "type": "function_call",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "paren_expr",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typecast",
+            "named": true
+          },
+          {
+            "type": "unary_op",
+            "named": true
+          }
+        ]
+      },
+      "else_branch": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "extern_modifier",
     "named": true,
     "fields": {
@@ -181,11 +340,19 @@
       "required": true,
       "types": [
         {
+          "type": "array_literal",
+          "named": true
+        },
+        {
           "type": "binary_op",
           "named": true
         },
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
           "named": true
         },
         {
@@ -236,11 +403,19 @@
       "required": false,
       "types": [
         {
+          "type": "array_literal",
+          "named": true
+        },
+        {
           "type": "binary_op",
           "named": true
         },
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
           "named": true
         },
         {
@@ -382,11 +557,19 @@
       "required": true,
       "types": [
         {
+          "type": "array_literal",
+          "named": true
+        },
+        {
           "type": "binary_op",
           "named": true
         },
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
           "named": true
         },
         {
@@ -459,6 +642,77 @@
     }
   },
   {
+    "type": "global",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "array_literal",
+          "named": true
+        },
+        {
+          "type": "binary_op",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "field_access",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "generic_type",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "paren_expr",
+          "named": true
+        },
+        {
+          "type": "primitive_type",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct_literal",
+          "named": true
+        },
+        {
+          "type": "typecast",
+          "named": true
+        },
+        {
+          "type": "unary_op",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "let",
     "named": true,
     "fields": {},
@@ -467,11 +721,19 @@
       "required": true,
       "types": [
         {
+          "type": "array_literal",
+          "named": true
+        },
+        {
           "type": "binary_op",
           "named": true
         },
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
           "named": true
         },
         {
@@ -553,11 +815,19 @@
       "required": true,
       "types": [
         {
+          "type": "array_literal",
+          "named": true
+        },
+        {
           "type": "binary_op",
           "named": true
         },
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
           "named": true
         },
         {
@@ -613,11 +883,19 @@
       "required": true,
       "types": [
         {
+          "type": "array_literal",
+          "named": true
+        },
+        {
           "type": "binary_op",
           "named": true
         },
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
           "named": true
         },
         {
@@ -676,6 +954,10 @@
           "named": true
         },
         {
+          "type": "global",
+          "named": true
+        },
+        {
           "type": "struct",
           "named": true
         }
@@ -691,6 +973,10 @@
       "required": true,
       "types": [
         {
+          "type": "array_literal",
+          "named": true
+        },
+        {
           "type": "assignment",
           "named": true
         },
@@ -704,6 +990,10 @@
         },
         {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "condition",
           "named": true
         },
         {
@@ -805,11 +1095,19 @@
       "required": true,
       "types": [
         {
+          "type": "array_literal",
+          "named": true
+        },
+        {
           "type": "binary_op",
           "named": true
         },
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
           "named": true
         },
         {
@@ -873,11 +1171,19 @@
       "required": true,
       "types": [
         {
+          "type": "array_literal",
+          "named": true
+        },
+        {
           "type": "binary_op",
           "named": true
         },
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
           "named": true
         },
         {
@@ -992,6 +1298,14 @@
     "named": false
   },
   {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
     "type": "as",
     "named": false
   },
@@ -1002,6 +1316,10 @@
   {
     "type": "comment",
     "named": true
+  },
+  {
+    "type": "else",
+    "named": false
   },
   {
     "type": "extern",
@@ -1017,6 +1335,10 @@
   },
   {
     "type": "fn",
+    "named": false
+  },
+  {
+    "type": "global",
     "named": false
   },
   {
@@ -1038,6 +1360,10 @@
   {
     "type": "identifier",
     "named": true
+  },
+  {
+    "type": "if",
+    "named": false
   },
   {
     "type": "let",

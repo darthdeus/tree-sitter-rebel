@@ -1,0 +1,9 @@
+fn begin() {
+    print("hello");
+
+    if soft {
+        SetTargetFPS(60.0);
+    }
+}
+
+

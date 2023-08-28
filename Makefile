@@ -7,7 +7,12 @@ else
 	CMD_PREFIX :=
 endif
 
-default: highlight
+# FILE=examples/a.rbl
+# FILE=examples/big.rbl
+FILE=examples/err.rbl
+
+default: test
+# default: highlight
 # default: both
 # default: simple
 
@@ -17,12 +22,13 @@ generate:
 	$(CMD_PREFIX) tree-sitter generate
 
 highlight:
-	$(CMD_PREFIX) tree-sitter highlight examples/a.rbl
+	$(CMD_PREFIX) tree-sitter highlight $(FILE)
 
 test: generate
+	$(CMD_PREFIX) tree-sitter parse $(FILE)
 	# $(CMD_PREFIX) tree-sitter parse examples/big.rbl
 	# $(CMD_PREFIX) tree-sitter parse examples/simple.rbl
-	$(CMD_PREFIX) tree-sitter parse examples/a.rbl
+	# $(CMD_PREFIX) tree-sitter parse examples/a.rbl
 
 simple: generate
 	$(CMD_PREFIX) tree-sitter parse examples/simple.rbl

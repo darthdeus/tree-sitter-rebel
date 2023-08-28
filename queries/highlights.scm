@@ -43,6 +43,7 @@
 ; Keywords
 "fn" @keyword.function
 "let" @keyword.declaration
+"global" @keyword.declaration
 "return" @keyword.control
 "as" @keyword.operator
 "extern" @keyword.directive
