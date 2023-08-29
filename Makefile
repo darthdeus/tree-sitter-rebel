@@ -8,13 +8,15 @@ else
 endif
 
 # FILE=examples/a.rbl
-FILE=examples/fn.rbl
+# FILE=examples/loops.rbl
+FILE=examples/methods.rbl
+# FILE=examples/fn.rbl
 # FILE=examples/big.rbl
 # FILE=examples/err.rbl
 
-default: test
+# default: test
 default: test-parse
-default: highlight
+# default: highlight
 # default: both
 # default: simple
 

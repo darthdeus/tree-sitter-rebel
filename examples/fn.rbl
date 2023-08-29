@@ -17,5 +17,3 @@ global SAD_ENEMY: i32 = ENEMIES[0];
 fn f() {
     ENEMIES[0]
 }
-
-

@@ -1,0 +1,31 @@
+fn loops() {
+    let x: u16 = 1;
+    for i in 0..x {
+        println($"i = {i}");
+    } 
+
+    let x: u32 = 1;
+    for i in 0..x {
+        println($"i = {i}");
+    }
+
+    let x: u64 = 1;
+    for i in 0..x {
+        println($"i = {i}");
+    } 
+
+    let x: i16 = 1;
+    for i in 0..x {
+        println($"i = {i}");
+    } 
+
+    let x: i32 = 1;
+    for i in 0..x {
+        println($"i = {i}");
+    }
+
+    let x: i64 = 1;
+    for i in 0..x {
+        println($"i = {i}");
+    } 
+}
