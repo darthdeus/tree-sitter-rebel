@@ -436,6 +436,10 @@
         }
       ]
     },
+    "self": {
+      "type": "STRING",
+      "value": "self"
+    },
     "parameter_list": {
       "type": "SEQ",
       "members": [
@@ -450,8 +454,17 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "parameter"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "self"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "parameter"
+                    }
+                  ]
                 },
                 {
                   "type": "REPEAT",
@@ -463,8 +476,17 @@
                         "value": ","
                       },
                       {
-                        "type": "SYMBOL",
-                        "name": "parameter"
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "SYMBOL",
+                            "name": "self"
+                          },
+                          {
+                            "type": "SYMBOL",
+                            "name": "parameter"
+                          }
+                        ]
                       }
                     ]
                   }
@@ -921,7 +943,7 @@
     },
     "unary_op": {
       "type": "PREC",
-      "value": 2,
+      "value": 12,
       "content": {
         "type": "SEQ",
         "members": [

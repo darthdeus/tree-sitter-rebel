@@ -1,3 +1,9 @@
+impl Enemy {
+    fn add_to_spatial(self, ctx: GameContext) {
+    }
+}
+
 fn loops() {
     x.f();
 }
+

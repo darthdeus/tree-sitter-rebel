@@ -128,7 +128,8 @@ module.exports = grammar({
 
     extern_modifier: ($) => seq("extern", field("call_conv", '"C"')),
 
-    parameter_list: ($) => seq("(", commaSep($.parameter), ")"),
+    self: ($) => "self",
+    parameter_list: ($) => seq("(", commaSep(choice($.self, $.parameter)), ")"),
     parameter: ($) => seq($.identifier, ":", $._type_expr),
 
     statement: ($) =>

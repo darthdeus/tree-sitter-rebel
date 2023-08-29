@@ -1394,6 +1394,10 @@
         {
           "type": "parameter",
           "named": true
+        },
+        {
+          "type": "self",
+          "named": true
         }
       ]
     }
@@ -2071,6 +2075,10 @@
   {
     "type": "return",
     "named": false
+  },
+  {
+    "type": "self",
+    "named": true
   },
   {
     "type": "struct",
