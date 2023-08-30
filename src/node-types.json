@@ -20,7 +20,7 @@
           "named": true
         },
         {
-          "type": "condition",
+          "type": "enum_variant",
           "named": true
         },
         {
@@ -91,7 +91,7 @@
           "named": true
         },
         {
-          "type": "condition",
+          "type": "enum_variant",
           "named": true
         },
         {
@@ -171,7 +171,7 @@
           "named": true
         },
         {
-          "type": "condition",
+          "type": "enum_variant",
           "named": true
         },
         {
@@ -258,7 +258,7 @@
             "named": true
           },
           {
-            "type": "condition",
+            "type": "enum_variant",
             "named": true
           },
           {
@@ -356,6 +356,21 @@
     }
   },
   {
+    "type": "enum_variant",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "enum_variants",
     "named": true,
     "fields": {},
@@ -449,7 +464,7 @@
             "named": true
           },
           {
-            "type": "condition",
+            "type": "enum_variant",
             "named": true
           },
           {
@@ -531,7 +546,7 @@
           "named": true
         },
         {
-          "type": "condition",
+          "type": "enum_variant",
           "named": true
         },
         {
@@ -735,7 +750,7 @@
           "named": true
         },
         {
-          "type": "condition",
+          "type": "enum_variant",
           "named": true
         },
         {
@@ -864,7 +879,7 @@
             "named": true
           },
           {
-            "type": "condition",
+            "type": "enum_variant",
             "named": true
           },
           {
@@ -970,7 +985,7 @@
             "named": true
           },
           {
-            "type": "condition",
+            "type": "enum_variant",
             "named": true
           },
           {
@@ -1036,7 +1051,7 @@
             "named": true
           },
           {
-            "type": "condition",
+            "type": "enum_variant",
             "named": true
           },
           {
@@ -1108,7 +1123,7 @@
           "named": true
         },
         {
-          "type": "condition",
+          "type": "enum_variant",
           "named": true
         },
         {
@@ -1233,7 +1248,7 @@
             "named": true
           },
           {
-            "type": "condition",
+            "type": "enum_variant",
             "named": true
           },
           {
@@ -1299,7 +1314,7 @@
             "named": true
           },
           {
-            "type": "condition",
+            "type": "enum_variant",
             "named": true
           },
           {
@@ -1423,7 +1438,7 @@
           "named": true
         },
         {
-          "type": "condition",
+          "type": "enum_variant",
           "named": true
         },
         {
@@ -1499,7 +1514,7 @@
           "named": true
         },
         {
-          "type": "condition",
+          "type": "enum_variant",
           "named": true
         },
         {
@@ -1618,6 +1633,10 @@
         },
         {
           "type": "condition",
+          "named": true
+        },
+        {
+          "type": "enum_variant",
           "named": true
         },
         {
@@ -1754,7 +1773,7 @@
           "named": true
         },
         {
-          "type": "condition",
+          "type": "enum_variant",
           "named": true
         },
         {
@@ -1838,7 +1857,7 @@
           "named": true
         },
         {
-          "type": "condition",
+          "type": "enum_variant",
           "named": true
         },
         {
@@ -1954,6 +1973,10 @@
   },
   {
     "type": ":",
+    "named": false
+  },
+  {
+    "type": "::",
     "named": false
   },
   {

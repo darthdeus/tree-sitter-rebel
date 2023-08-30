@@ -4,6 +4,5 @@ impl Enemy {
 }
 
 fn loops() {
-    x.f();
+    x.y.f();
 }
-

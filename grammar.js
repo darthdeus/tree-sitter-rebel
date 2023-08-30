@@ -67,7 +67,9 @@ module.exports = grammar({
       seq(
         "enum",
         field("name", $.identifier),
+        "{",
         field("variants", $.enum_variants),
+        "}",
       ),
 
     global: ($) =>
@@ -94,11 +96,14 @@ module.exports = grammar({
         "}",
       ),
 
-    enum_variants: ($) => repeat1(seq($.identifier, optional($._type_expr))),
+    enum_variants: ($) =>
+      seq(
+        sepBy1(",", seq($.identifier, optional($._type_expr))),
+        optional(","),
+      ),
 
     _expression: ($) =>
       choice(
-        $.condition,
         $.identifier,
         $.number,
         $.string,
@@ -112,8 +117,11 @@ module.exports = grammar({
         $.paren_expr,
         $.struct_literal,
         $.array_literal,
+        $.enum_variant,
         $.block,
       ),
+
+    enum_variant: ($) => seq($.identifier, "::", $.identifier),
 
     index: ($) =>
       prec(
@@ -135,6 +143,7 @@ module.exports = grammar({
     statement: ($) =>
       choice(
         $.for,
+        $.condition,
         $.comment,
         seq(
           choice($._expression, $.return, $.let, $.assignment, $.macro_expr),

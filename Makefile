@@ -9,6 +9,8 @@ endif
 
 # FILE=examples/a.rbl
 # FILE=examples/loops.rbl
+# FILE=examples/enum.rbl
+# FILE=examples/class_methods.rbl
 FILE=examples/methods.rbl
 # FILE=examples/fn.rbl
 # FILE=examples/big.rbl
@@ -32,6 +34,7 @@ highlight:
 	$(CMD_PREFIX) tree-sitter highlight $(FILE)
 
 test-parse: generate
+	# make install
 	$(CMD_PREFIX) tree-sitter parse $(FILE)
 	# $(CMD_PREFIX) tree-sitter parse examples/big.rbl
 	# $(CMD_PREFIX) tree-sitter parse examples/simple.rbl
@@ -39,3 +42,6 @@ test-parse: generate
 
 simple: generate
 	$(CMD_PREFIX) tree-sitter parse examples/simple.rbl
+
+install:
+	nvim +Rerebuild +qa

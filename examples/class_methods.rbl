@@ -1,0 +1,8 @@
+impl Foo {
+    fn f(self, x: Bar) {
+        Thing {
+            entity_type: EntityType::Enemy.tag(),
+        }
+    }
+}
+
