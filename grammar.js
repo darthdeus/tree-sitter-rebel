@@ -15,6 +15,7 @@ function semicolonSep(rule) {
 }
 
 const PREC = {
+  generic: 16,
   range: 15,
   call: 14,
   field: 13,
@@ -48,6 +49,7 @@ module.exports = grammar({
         $.macro_def,
         $.macro_expr,
         $.impl_block,
+        $.comment,
       ),
 
     function: ($) =>
@@ -115,7 +117,7 @@ module.exports = grammar({
         $.method_call,
         $.index,
         $.paren_expr,
-        $.struct_literal,
+        // $.struct_literal,
         $.array_literal,
         $.enum_variant,
         $.block,
@@ -144,7 +146,6 @@ module.exports = grammar({
       choice(
         $.for,
         $.condition,
-        $.comment,
         seq(
           choice($._expression, $.return, $.let, $.assignment, $.macro_expr),
           ";",
@@ -179,7 +180,7 @@ module.exports = grammar({
       ),
 
     function_call: ($) =>
-      prec(1, seq($.identifier, "(", commaSep($._expression), ")")),
+      prec(PREC.call, seq($.identifier, "(", commaSep($._expression), ")")),
 
     struct_literal: ($) => prec(1, seq($.identifier, $.field_values)),
 
@@ -201,14 +202,14 @@ module.exports = grammar({
         optional(","),
       ),
 
-    bin_op: ($) => choice("+", "-", "*", "/"),
+    bin_op: ($) => choice("+", "-", "*", "/", "&&", "||", ">", "<", "==", "!="),
     un_op: ($) => choice("-", "*", "&"),
 
     unary_op: ($) => prec(PREC.unary, seq($.un_op, $._expression)),
     binary_op: ($) => prec.left(1, seq($._expression, $.bin_op, $._expression)),
     typecast: ($) => seq($._expression, "as", $._type_expr),
 
-    comment: ($) => token(seq("//", /.*/)),
+    comment: ($) => seq("//", /.*/),
 
     field_access: ($) =>
       prec(
@@ -232,11 +233,14 @@ module.exports = grammar({
     _type_expr: ($) => choice($.identifier, $.primitive_type, $.generic_type),
 
     generic_type: ($) =>
-      seq(
-        field("type", $.identifier),
-        "<",
-        field("type_args", sepBy1(",", $.identifier), optional(",")),
-        ">",
+      prec(
+        PREC.generic,
+        seq(
+          field("type", $.identifier),
+          "<",
+          field("type_args", sepBy1(",", $.identifier), optional(",")),
+          ">",
+        ),
       ),
 
     paren_expr: ($) => seq("(", $._expression, ")"),

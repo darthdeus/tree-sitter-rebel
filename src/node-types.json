@@ -56,10 +56,6 @@
           "named": true
         },
         {
-          "type": "struct_literal",
-          "named": true
-        },
-        {
           "type": "typecast",
           "named": true
         },
@@ -124,10 +120,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "struct_literal",
           "named": true
         },
         {
@@ -207,10 +199,6 @@
           "named": true
         },
         {
-          "type": "struct_literal",
-          "named": true
-        },
-        {
           "type": "typecast",
           "named": true
         },
@@ -236,6 +224,11 @@
         ]
       }
     }
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "condition",
@@ -291,10 +284,6 @@
           },
           {
             "type": "string",
-            "named": true
-          },
-          {
-            "type": "struct_literal",
             "named": true
           },
           {
@@ -500,10 +489,6 @@
             "named": true
           },
           {
-            "type": "struct_literal",
-            "named": true
-          },
-          {
             "type": "typecast",
             "named": true
           },
@@ -579,10 +564,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "struct_literal",
           "named": true
         },
         {
@@ -786,10 +767,6 @@
           "named": true
         },
         {
-          "type": "struct_literal",
-          "named": true
-        },
-        {
           "type": "typecast",
           "named": true
         },
@@ -915,10 +892,6 @@
             "named": true
           },
           {
-            "type": "struct_literal",
-            "named": true
-          },
-          {
             "type": "typecast",
             "named": true
           },
@@ -1021,10 +994,6 @@
             "named": true
           },
           {
-            "type": "struct_literal",
-            "named": true
-          },
-          {
             "type": "typecast",
             "named": true
           },
@@ -1084,10 +1053,6 @@
           },
           {
             "type": "string",
-            "named": true
-          },
-          {
-            "type": "struct_literal",
             "named": true
           },
           {
@@ -1164,10 +1129,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "struct_literal",
           "named": true
         },
         {
@@ -1284,10 +1245,6 @@
             "named": true
           },
           {
-            "type": "struct_literal",
-            "named": true
-          },
-          {
             "type": "typecast",
             "named": true
           },
@@ -1347,10 +1304,6 @@
           },
           {
             "type": "string",
-            "named": true
-          },
-          {
-            "type": "struct_literal",
             "named": true
           },
           {
@@ -1474,10 +1427,6 @@
           "named": true
         },
         {
-          "type": "struct_literal",
-          "named": true
-        },
-        {
           "type": "typecast",
           "named": true
         },
@@ -1550,10 +1499,6 @@
           "named": true
         },
         {
-          "type": "struct_literal",
-          "named": true
-        },
-        {
           "type": "typecast",
           "named": true
         },
@@ -1572,6 +1517,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
         {
           "type": "enum",
           "named": true
@@ -1625,10 +1574,6 @@
         },
         {
           "type": "block",
-          "named": true
-        },
-        {
-          "type": "comment",
           "named": true
         },
         {
@@ -1688,10 +1633,6 @@
           "named": true
         },
         {
-          "type": "struct_literal",
-          "named": true
-        },
-        {
           "type": "typecast",
           "named": true
         },
@@ -1731,25 +1672,6 @@
           }
         ]
       }
-    }
-  },
-  {
-    "type": "struct_literal",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "field_values",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -1814,10 +1736,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "struct_literal",
           "named": true
         },
         {
@@ -1893,10 +1811,6 @@
           "named": true
         },
         {
-          "type": "struct_literal",
-          "named": true
-        },
-        {
           "type": "typecast",
           "named": true
         },
@@ -1910,6 +1824,10 @@
         }
       ]
     }
+  },
+  {
+    "type": "!=",
+    "named": false
   },
   {
     "type": "\"",
@@ -1929,6 +1847,10 @@
   },
   {
     "type": "&",
+    "named": false
+  },
+  {
+    "type": "&&",
     "named": false
   },
   {
@@ -1972,6 +1894,10 @@
     "named": false
   },
   {
+    "type": "//",
+    "named": false
+  },
+  {
     "type": ":",
     "named": false
   },
@@ -1989,6 +1915,10 @@
   },
   {
     "type": "=",
+    "named": false
+  },
+  {
+    "type": "==",
     "named": false
   },
   {
@@ -2010,10 +1940,6 @@
   {
     "type": "bool",
     "named": false
-  },
-  {
-    "type": "comment",
-    "named": true
   },
   {
     "type": "else",
@@ -2125,6 +2051,10 @@
   },
   {
     "type": "{",
+    "named": false
+  },
+  {
+    "type": "||",
     "named": false
   },
   {

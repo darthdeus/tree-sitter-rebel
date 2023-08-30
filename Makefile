@@ -11,7 +11,9 @@ endif
 # FILE=examples/loops.rbl
 # FILE=examples/enum.rbl
 # FILE=examples/class_methods.rbl
-FILE=examples/methods.rbl
+# FILE=examples/methods.rbl
+# FILE=examples/comments.rbl
+FILE=examples/if.rbl
 # FILE=examples/fn.rbl
 # FILE=examples/big.rbl
 # FILE=examples/err.rbl
@@ -34,8 +36,8 @@ highlight:
 	$(CMD_PREFIX) tree-sitter highlight $(FILE)
 
 test-parse: generate
-	# make install
 	$(CMD_PREFIX) tree-sitter parse $(FILE)
+	# make install
 	# $(CMD_PREFIX) tree-sitter parse examples/big.rbl
 	# $(CMD_PREFIX) tree-sitter parse examples/simple.rbl
 	# $(CMD_PREFIX) tree-sitter parse examples/a.rbl

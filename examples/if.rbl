@@ -1,0 +1,9 @@
+impl Foo {
+    fn f(self, center: Vector2, radius: f32) -> OptionVec2 {
+        if dot < 0.0 || dot > ray_len {
+            return OptionVec2::None;
+        }
+    }
+}
+
+global ANIM_TIME: f32 = DELTA_TIME * 20.0;
