@@ -1763,6 +1763,10 @@
           "named": true
         },
         {
+          "type": "comment",
+          "named": true
+        },
+        {
           "type": "condition",
           "named": true
         },

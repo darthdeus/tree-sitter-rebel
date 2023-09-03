@@ -1,0 +1,23 @@
+===============
+Simple assignment
+===============
+
+fn f() {
+    let x = 1;
+    x = x + 2;
+}
+
+---
+
+(source_file
+    (function
+        (identifier)
+        (parameter_list)
+        (block
+            (statement
+                (let (identifier) (number)))
+            (statement
+                (assignment
+                    (identifier)
+                    (binary_op (identifier) (bin_op) (number)))))))
+

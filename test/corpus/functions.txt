@@ -83,3 +83,36 @@ extern "C" fn f(x: f32, y: Foo) -> Bar {
                     (identifier)
                     (string)))
             return_expr: (number))))
+
+
+=========================
+Simple call
+=========================
+
+fn f() {
+    // Include the end point
+    LIGHT_GRID.maybe_inc(end.x as u32);
+}
+
+---
+
+(source_file
+    (function
+        (identifier)
+        (parameter_list)
+        (block
+            (statement (comment))
+            (statement
+                (method_call
+                    (identifier)
+                    (identifier)
+                    (typecast
+                        (field_access (identifier) (identifier))
+                        (primitive_type)
+                    )
+                )
+            )
+        )
+    )
+)
+

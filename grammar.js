@@ -170,6 +170,7 @@ module.exports = grammar({
       choice(
         $.for,
         $.while,
+        $.comment,
         seq(
           choice($._expression, $.return, $.let, $.assignment, $.macro_expr),
           ";",
