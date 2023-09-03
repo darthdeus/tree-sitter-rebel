@@ -85,9 +85,30 @@ module.exports = grammar({
         ";",
       ),
 
-    macro_def: ($) => seq("macro", field("name", $.identifier)),
+    macro_def: ($) =>
+      seq(
+        "macro",
+        "#",
+        field("name", $.identifier),
+        field("params", $.macro_params),
+        optional(seq("->", field("return_type", $._type_expr))),
+        "{",
+        // repeat(choose($._item),
+        repeat($.macro_expr),
+        "}",
+      ),
+
+    macro_params: ($) =>
+      seq("(", commaSep(seq("$", $.identifier, ":", $.identifier)), ")"),
+
     macro_expr: ($) =>
-      seq("#", field("name", $.identifier), "(", $.identifier, ")"),
+      seq(
+        "#",
+        field("name", $.identifier),
+        "(",
+        repeat(choice($.identifier, $.macro_expr)),
+        ")",
+      ),
 
     impl_block: ($) =>
       seq(
@@ -216,7 +237,7 @@ module.exports = grammar({
         // TODO: should be expression, but fine for now
         field("from", choice($.integer, $.identifier)),
         "..",
-        field("to",  $._expression),
+        field("to", $._expression),
         field("body", $.block),
       ),
 
@@ -358,7 +379,7 @@ module.exports = grammar({
     string: ($) =>
       seq(optional("$"), '"', repeat(choice(/[^"\\]/, /\\./)), '"'),
 
-    identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
+    identifier: ($) => /\$?[a-zA-Z_][a-zA-Z0-9_]*/,
     // identifier: ($) => /(?!\bif\b)[a-zA-Z_][a-zA-Z0-9_]*/,
 
     integer: ($) => /-?\d+/,

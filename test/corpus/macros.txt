@@ -1,0 +1,21 @@
+===============
+Macros
+===============
+
+macro #def_arena($ty: Ident) -> ItemList {
+    #let($Element, #concat($ty, ArenaElement))
+}
+
+---
+
+(source_file
+  (macro_def
+    (identifier)
+    (macro_params
+      (identifier)
+      (identifier))
+    (identifier)
+    (macro_expr
+      (identifier)
+      (identifier))))
+
