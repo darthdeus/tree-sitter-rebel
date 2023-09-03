@@ -14,8 +14,17 @@ macro #def_arena($ty: Ident) -> ItemList {
     (macro_params
       (identifier)
       (identifier))
+
     (identifier)
-    (macro_expr
-      (identifier)
-      (identifier))))
+
+    (macro_body
+      (macro_expr
+        (identifier)
+        (macro_expr_args
+          (identifier)
+          (macro_expr
+            (identifier)
+            (macro_expr_args
+              (identifier)
+              (identifier))))))))
 

@@ -92,6 +92,11 @@ module.exports = grammar({
         field("name", $.identifier),
         field("params", $.macro_params),
         optional(seq("->", field("return_type", $._type_expr))),
+        $.macro_body,
+      ),
+
+    macro_body: ($) =>
+      seq(
         "{",
         // repeat(choose($._item),
         repeat($.macro_expr),
@@ -101,14 +106,10 @@ module.exports = grammar({
     macro_params: ($) =>
       seq("(", commaSep(seq("$", $.identifier, ":", $.identifier)), ")"),
 
-    macro_expr: ($) =>
-      seq(
-        "#",
-        field("name", $.identifier),
-        "(",
-        repeat(choice($.identifier, $.macro_expr)),
-        ")",
-      ),
+    macro_expr: ($) => seq("#", field("name", $.identifier), $.macro_expr_args),
+
+    macro_expr_args: ($) =>
+      seq("(", commaSep(choice($.identifier, $.macro_expr)), ")"),
 
     impl_block: ($) =>
       seq(

@@ -1364,6 +1364,21 @@
     }
   },
   {
+    "type": "macro_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "macro_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "macro_def",
     "named": true,
     "fields": {
@@ -1407,11 +1422,11 @@
       }
     },
     "children": {
-      "multiple": true,
-      "required": false,
+      "multiple": false,
+      "required": true,
       "types": [
         {
-          "type": "macro_expr",
+          "type": "macro_body",
           "named": true
         }
       ]
@@ -1432,6 +1447,21 @@
         ]
       }
     },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "macro_expr_args",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "macro_expr_args",
+    "named": true,
+    "fields": {},
     "children": {
       "multiple": true,
       "required": false,
