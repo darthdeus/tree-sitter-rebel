@@ -121,6 +121,7 @@ module.exports = grammar({
         $.array_literal,
         $.enum_variant,
         $.block,
+        $.condition,
       ),
 
     _expression_no_struct: ($) =>
@@ -142,6 +143,7 @@ module.exports = grammar({
           $.array_literal,
           $.enum_variant,
           $.block,
+          $.condition,
         ),
       ),
 
@@ -167,7 +169,7 @@ module.exports = grammar({
     statement: ($) =>
       choice(
         $.for,
-        $.condition,
+        $.while,
         seq(
           choice($._expression, $.return, $.let, $.assignment, $.macro_expr),
           ";",
@@ -183,6 +185,13 @@ module.exports = grammar({
         field("from", choice($.integer, $.identifier)),
         "..",
         field("to", choice($.integer, $.identifier)),
+        field("body", $.block),
+      ),
+
+    while: ($) =>
+      seq(
+        "while",
+        field("condition", $._expression_no_struct),
         field("body", $.block),
       ),
 
@@ -225,7 +234,9 @@ module.exports = grammar({
         optional(","),
       ),
 
-    bin_op: ($) => choice("+", "-", "*", "/", "&&", "||", ">", "<", "==", "!="),
+    bin_op: ($) =>
+      choice("+", "-", "*", "/", "&&", "||", ">", "<", "==", ">=", "<=", "!="),
+
     un_op: ($) => choice("-", "*", "&"),
 
     unary_op: ($) => prec(PREC.unary, seq($.un_op, $._expression)),

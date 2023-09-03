@@ -1,0 +1,61 @@
+===============
+While loop
+===============
+
+fn f() {
+    while true {
+    }
+}
+
+---
+
+(source_file
+    (function
+        (identifier)
+        (parameter_list)
+        (block
+            (statement
+                (while (identifier) (block))))))
+
+===============
+While complex condition
+===============
+
+fn f() {
+    while x > 0 && y < (a + b) {
+        while false {
+            return 4;
+        }
+    }
+
+    return 6;
+}
+
+---
+
+(source_file
+    (function
+        (identifier)
+        (parameter_list)
+        (block
+            (statement
+                (while
+                    (binary_op
+                        (binary_op
+                            (binary_op 
+                                (identifier) (bin_op) (number))
+                            (bin_op)
+                            (identifier))
+                        (bin_op)
+                        (paren_expr
+                            (binary_op
+                                (identifier) (bin_op) (identifier))))
+                    (block
+                        (statement
+                            (while
+                                (identifier)
+                                (block
+                                    (statement
+                                        (return (number)))))))))
+            (statement (return (number))))))
+

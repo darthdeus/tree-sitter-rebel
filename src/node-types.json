@@ -20,6 +20,10 @@
           "named": true
         },
         {
+          "type": "condition",
+          "named": true
+        },
+        {
           "type": "enum_variant",
           "named": true
         },
@@ -88,6 +92,10 @@
         },
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
           "named": true
         },
         {
@@ -171,6 +179,10 @@
           "named": true
         },
         {
+          "type": "condition",
+          "named": true
+        },
+        {
           "type": "enum_variant",
           "named": true
         },
@@ -239,6 +251,10 @@
           },
           {
             "type": "block",
+            "named": true
+          },
+          {
+            "type": "condition",
             "named": true
           },
           {
@@ -326,6 +342,10 @@
           },
           {
             "type": "block",
+            "named": true
+          },
+          {
+            "type": "condition",
             "named": true
           },
           {
@@ -531,6 +551,10 @@
             "named": true
           },
           {
+            "type": "condition",
+            "named": true
+          },
+          {
             "type": "enum_variant",
             "named": true
           },
@@ -610,6 +634,10 @@
         },
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
           "named": true
         },
         {
@@ -817,6 +845,10 @@
           "named": true
         },
         {
+          "type": "condition",
+          "named": true
+        },
+        {
           "type": "enum_variant",
           "named": true
         },
@@ -946,6 +978,10 @@
             "named": true
           },
           {
+            "type": "condition",
+            "named": true
+          },
+          {
             "type": "enum_variant",
             "named": true
           },
@@ -1052,6 +1088,10 @@
             "named": true
           },
           {
+            "type": "condition",
+            "named": true
+          },
+          {
             "type": "enum_variant",
             "named": true
           },
@@ -1115,6 +1155,10 @@
           },
           {
             "type": "block",
+            "named": true
+          },
+          {
+            "type": "condition",
             "named": true
           },
           {
@@ -1187,6 +1231,10 @@
         },
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
           "named": true
         },
         {
@@ -1315,6 +1363,10 @@
             "named": true
           },
           {
+            "type": "condition",
+            "named": true
+          },
+          {
             "type": "enum_variant",
             "named": true
           },
@@ -1378,6 +1430,10 @@
           },
           {
             "type": "block",
+            "named": true
+          },
+          {
+            "type": "condition",
             "named": true
           },
           {
@@ -1505,6 +1561,10 @@
           "named": true
         },
         {
+          "type": "condition",
+          "named": true
+        },
+        {
           "type": "enum_variant",
           "named": true
         },
@@ -1578,6 +1638,10 @@
         },
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
           "named": true
         },
         {
@@ -1765,6 +1829,10 @@
         {
           "type": "unary_op",
           "named": true
+        },
+        {
+          "type": "while",
+          "named": true
         }
       ]
     }
@@ -1837,6 +1905,10 @@
         },
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
           "named": true
         },
         {
@@ -1924,6 +1996,10 @@
           "named": true
         },
         {
+          "type": "condition",
+          "named": true
+        },
+        {
           "type": "enum_variant",
           "named": true
         },
@@ -1976,6 +2052,88 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "while",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array_literal",
+            "named": true
+          },
+          {
+            "type": "binary_op",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "condition",
+            "named": true
+          },
+          {
+            "type": "enum_variant",
+            "named": true
+          },
+          {
+            "type": "field_access",
+            "named": true
+          },
+          {
+            "type": "function_call",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "index",
+            "named": true
+          },
+          {
+            "type": "method_call",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "paren_expr",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "typecast",
+            "named": true
+          },
+          {
+            "type": "unary_op",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -2067,6 +2225,10 @@
     "named": false
   },
   {
+    "type": "<=",
+    "named": false
+  },
+  {
     "type": "=",
     "named": false
   },
@@ -2076,6 +2238,10 @@
   },
   {
     "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
     "named": false
   },
   {
@@ -2200,6 +2366,10 @@
   },
   {
     "type": "u8",
+    "named": false
+  },
+  {
+    "type": "while",
     "named": false
   },
   {
