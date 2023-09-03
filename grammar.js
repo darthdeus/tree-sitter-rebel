@@ -187,14 +187,17 @@ module.exports = grammar({
     parameter: ($) => seq($.identifier, ":", $._type_expr),
 
     statement: ($) =>
-      choice(
-        $.for,
-        $.while,
-        $.comment,
-        // $.if,
-        seq(
-          choice($._expression, $.return, $.let, $.assignment, $.macro_expr),
-          ";",
+      prec(
+        1000,
+        choice(
+          $.for,
+          $.while,
+          $.comment,
+          $.if,
+          seq(
+            choice($._expression, $.return, $.let, $.assignment, $.macro_expr),
+            ";",
+          ),
         ),
       ),
 

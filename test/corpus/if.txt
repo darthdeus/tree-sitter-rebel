@@ -15,12 +15,13 @@ fn f() {
     (identifier)
     (parameter_list)
     (block
-      (if
-        (identifier)
-        (block
-          (statement
-            (function_call
-              (identifier) (number))))))))
+      (statement
+        (if
+          (identifier)
+          (block
+            (statement
+              (function_call
+                (identifier) (number)))))))))
 
 =========================
 Basic assignment with a comment friend
@@ -59,6 +60,7 @@ Basic if with a real friend
 
 fn f() {
     if true {
+      false;
     }
 
     f();
@@ -73,6 +75,8 @@ fn f() {
     (parameter_list)
     (block
       (statement
-        (if (identifier)))
+        (if (identifier)
+          (block
+            (statement (identifier)))))
       (statement
         (function_call (identifier))))))
