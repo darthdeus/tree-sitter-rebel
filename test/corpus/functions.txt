@@ -9,13 +9,13 @@ fn x() -> i32 {
 ---
 
 (source_file
-    (function
-        (identifier)
-        (parameter_list)
-        (primitive_type)
-        (block
-            (statement
-                (return (number))))))
+  (function
+    (identifier)
+    (parameter_list)
+    (primitive_type)
+    (block
+      (statement
+        (return (number))))))
 
 ===============
 Implicit return
@@ -28,11 +28,11 @@ fn x() -> i32 {
 ---
 
 (source_file
-    (function
-        (identifier)
-        (parameter_list)
-        (primitive_type)
-        (block (number))))
+  (function
+    (identifier)
+    (parameter_list)
+    (primitive_type)
+    (block (number))))
 
 =========================
 Implicit return with body
@@ -46,16 +46,16 @@ fn x() -> i32 {
 ---
 
 (source_file
-    (function
-        (identifier)
-        (parameter_list)
-        (primitive_type)
-        (block 
-            (statement
-                (function_call
-                    (identifier)
-                    (string)))
-            (number))))
+  (function
+    (identifier)
+    (parameter_list)
+    (primitive_type)
+    (block 
+      (statement
+        (function_call
+          (identifier)
+          (string)))
+      (number))))
 
 
 =========================
@@ -70,19 +70,19 @@ extern "C" fn f(x: f32, y: Foo) -> Bar {
 ---
 
 (source_file
-    (function
-        modifier: (extern_modifier)
-        name: (identifier)
-        parameters: (parameter_list
-            (parameter (identifier) (primitive_type))
-            (parameter (identifier) (identifier)))
-        return_type: (identifier)
-        (block 
-            statements: (statement
-                (function_call
-                    (identifier)
-                    (string)))
-            return_expr: (number))))
+  (function
+    modifier: (extern_modifier)
+    name: (identifier)
+    parameters: (parameter_list
+                  (parameter (identifier) (primitive_type))
+                  (parameter (identifier) (identifier)))
+    return_type: (identifier)
+    (block 
+      statements: (statement
+                    (function_call
+                      (identifier)
+                      (string)))
+      return_expr: (number))))
 
 
 =========================
@@ -97,22 +97,16 @@ fn f() {
 ---
 
 (source_file
-    (function
-        (identifier)
-        (parameter_list)
-        (block
-            (statement (comment))
-            (statement
-                (method_call
-                    (identifier)
-                    (identifier)
-                    (typecast
-                        (field_access (identifier) (identifier))
-                        (primitive_type)
-                    )
-                )
-            )
-        )
-    )
-)
+  (function
+    (identifier)
+    (parameter_list)
+    (block
+      (statement (comment))
+      (statement
+        (method_call
+          (identifier)
+          (identifier)
+          (typecast
+            (field_access (identifier) (identifier))
+            (primitive_type)))))))
 

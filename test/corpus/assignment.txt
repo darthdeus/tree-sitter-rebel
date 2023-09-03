@@ -10,14 +10,14 @@ fn f() {
 ---
 
 (source_file
-    (function
-        (identifier)
-        (parameter_list)
-        (block
-            (statement
-                (let (identifier) (number)))
-            (statement
-                (assignment
-                    (identifier)
-                    (binary_op (identifier) (bin_op) (number)))))))
+  (function
+    (identifier)
+    (parameter_list)
+    (block
+      (statement
+        (let (identifier) (number)))
+      (statement
+        (assignment
+          (identifier)
+          (binary_op (identifier) (bin_op) (number)))))))
 

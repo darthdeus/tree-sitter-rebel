@@ -10,12 +10,12 @@ fn f() {
 ---
 
 (source_file
-    (function
-        (identifier)
-        (parameter_list)
-        (block
-            (statement
-                (while (identifier) (block))))))
+  (function
+    (identifier)
+    (parameter_list)
+    (block
+      (statement
+        (while (identifier) (block))))))
 
 ===============
 While complex condition
@@ -34,28 +34,28 @@ fn f() {
 ---
 
 (source_file
-    (function
-        (identifier)
-        (parameter_list)
-        (block
+  (function
+    (identifier)
+    (parameter_list)
+    (block
+      (statement
+        (while
+          (binary_op
+            (binary_op
+              (binary_op 
+                (identifier) (bin_op) (number))
+              (bin_op)
+              (identifier))
+            (bin_op)
+            (paren_expr
+              (binary_op
+                (identifier) (bin_op) (identifier))))
+          (block
             (statement
-                (while
-                    (binary_op
-                        (binary_op
-                            (binary_op 
-                                (identifier) (bin_op) (number))
-                            (bin_op)
-                            (identifier))
-                        (bin_op)
-                        (paren_expr
-                            (binary_op
-                                (identifier) (bin_op) (identifier))))
-                    (block
-                        (statement
-                            (while
-                                (identifier)
-                                (block
-                                    (statement
-                                        (return (number)))))))))
-            (statement (return (number))))))
+              (while
+                (identifier)
+                (block
+                  (statement
+                    (return (number)))))))))
+      (statement (return (number))))))
 
