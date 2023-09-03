@@ -124,22 +124,25 @@ module.exports = grammar({
       ),
 
     _expression_no_struct: ($) =>
-      choice(
-        $.identifier,
-        $.number,
-        $.string,
-        $.function_call,
-        $.unary_op,
-        $.binary_op,
-        $.typecast,
-        $.field_access,
-        $.method_call,
-        $.index,
-        $.paren_expr,
-        // $.struct_literal,
-        $.array_literal,
-        $.enum_variant,
-        $.block,
+      prec(
+        5,
+        choice(
+          $.identifier,
+          $.number,
+          $.string,
+          $.function_call,
+          $.unary_op,
+          $.binary_op,
+          $.typecast,
+          $.field_access,
+          $.method_call,
+          $.index,
+          $.paren_expr,
+          // $.struct_literal,
+          $.array_literal,
+          $.enum_variant,
+          $.block,
+        ),
       ),
 
     enum_variant: ($) => seq($.identifier, "::", $.identifier),
@@ -187,7 +190,7 @@ module.exports = grammar({
       seq(
         "{",
         field("statements", repeat($.statement)),
-        // field("return_expr", optional($._expression)),
+        field("return_expr", optional($._expression)),
         "}",
       ),
 
@@ -226,7 +229,9 @@ module.exports = grammar({
     un_op: ($) => choice("-", "*", "&"),
 
     unary_op: ($) => prec(PREC.unary, seq($.un_op, $._expression)),
-    binary_op: ($) => prec.left(1, seq($._expression, $.bin_op, $._expression)),
+    binary_op: ($) =>
+      prec.left(1, seq($._expression, $.bin_op, $._expression_no_struct)),
+
     typecast: ($) => seq($._expression, "as", $._type_expr),
 
     comment: ($) => seq("//", /.*/),

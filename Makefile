@@ -18,8 +18,9 @@ FILE=examples/if.rbl
 # FILE=examples/big.rbl
 # FILE=examples/err.rbl
 
-# default: test
-default: test-parse
+default: test
+# default: test-parse
+default: install
 # default: highlight
 # default: both
 # default: simple
@@ -46,4 +47,4 @@ simple: generate
 	$(CMD_PREFIX) tree-sitter parse examples/simple.rbl
 
 install:
-	nvim +Rerebuild +qa
+	nvim "+TSInstallSync! rebel" +qa
