@@ -1,0 +1,28 @@
+===============
+For loop with a cast
+===============
+
+fn f() {
+    for i in 0..3 as u64 {
+      print(i);
+    }
+}
+
+---
+
+(source_file
+  (function
+    (identifier)
+    (parameter_list)
+    (block
+      (statement
+        (for
+          (identifier)
+          (integer)
+          (typecast (number) (primitive_type))
+          (block
+            (statement
+              (function_call
+                (identifier)
+                (identifier)))))))))
+

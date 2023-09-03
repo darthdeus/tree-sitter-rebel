@@ -1,0 +1,19 @@
+=========================
+Basic if
+=========================
+
+enum OptionVec2 {
+    Some: Vector2,
+    None,
+}
+
+---
+
+(source_file
+  (enum
+    (identifier)
+    (enum_variants
+      (identifier)
+      (identifier)
+      (identifier))))
+

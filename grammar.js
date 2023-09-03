@@ -100,7 +100,14 @@ module.exports = grammar({
 
     enum_variants: ($) =>
       seq(
-        sepBy1(",", seq($.identifier, optional($._type_expr))),
+        // sepBy1(",", seq($.identifier, optional($._type_expr))),
+        sepBy1(
+          ",",
+          seq(
+            field("variant", $.identifier),
+            optional(seq(":", field("type", $._type_expr))),
+          ),
+        ),
         optional(","),
       ),
 
@@ -209,7 +216,7 @@ module.exports = grammar({
         // TODO: should be expression, but fine for now
         field("from", choice($.integer, $.identifier)),
         "..",
-        field("to", choice($.integer, $.identifier)),
+        field("to",  $._expression),
         field("body", $.block),
       ),
 
@@ -260,7 +267,22 @@ module.exports = grammar({
       ),
 
     bin_op: ($) =>
-      choice("+", "-", "*", "/", "&&", "||", ">", "<", "==", ">=", "<=", "!="),
+      choice(
+        "+",
+        "-",
+        "*",
+        "/",
+        "&&",
+        "||",
+        ">",
+        "<",
+        "==",
+        ">=",
+        "<=",
+        "!=",
+        ">>",
+        "<<",
+      ),
 
     un_op: ($) => choice("-", "*", "&"),
 
