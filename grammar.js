@@ -117,7 +117,7 @@ module.exports = grammar({
         $.method_call,
         $.index,
         $.paren_expr,
-        // $.struct_literal,
+        $.struct_literal,
         $.array_literal,
         $.enum_variant,
         $.block,

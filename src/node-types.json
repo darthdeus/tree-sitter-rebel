@@ -56,6 +56,10 @@
           "named": true
         },
         {
+          "type": "struct_literal",
+          "named": true
+        },
+        {
           "type": "typecast",
           "named": true
         },
@@ -120,6 +124,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct_literal",
           "named": true
         },
         {
@@ -196,6 +204,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct_literal",
           "named": true
         },
         {
@@ -284,6 +296,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "struct_literal",
             "named": true
           },
           {
@@ -489,6 +505,10 @@
             "named": true
           },
           {
+            "type": "struct_literal",
+            "named": true
+          },
+          {
             "type": "typecast",
             "named": true
           },
@@ -564,6 +584,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct_literal",
           "named": true
         },
         {
@@ -767,6 +791,10 @@
           "named": true
         },
         {
+          "type": "struct_literal",
+          "named": true
+        },
+        {
           "type": "typecast",
           "named": true
         },
@@ -892,6 +920,10 @@
             "named": true
           },
           {
+            "type": "struct_literal",
+            "named": true
+          },
+          {
             "type": "typecast",
             "named": true
           },
@@ -994,6 +1026,10 @@
             "named": true
           },
           {
+            "type": "struct_literal",
+            "named": true
+          },
+          {
             "type": "typecast",
             "named": true
           },
@@ -1053,6 +1089,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "struct_literal",
             "named": true
           },
           {
@@ -1129,6 +1169,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct_literal",
           "named": true
         },
         {
@@ -1245,6 +1289,10 @@
             "named": true
           },
           {
+            "type": "struct_literal",
+            "named": true
+          },
+          {
             "type": "typecast",
             "named": true
           },
@@ -1304,6 +1352,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "struct_literal",
             "named": true
           },
           {
@@ -1427,6 +1479,10 @@
           "named": true
         },
         {
+          "type": "struct_literal",
+          "named": true
+        },
+        {
           "type": "typecast",
           "named": true
         },
@@ -1496,6 +1552,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct_literal",
           "named": true
         },
         {
@@ -1633,6 +1693,10 @@
           "named": true
         },
         {
+          "type": "struct_literal",
+          "named": true
+        },
+        {
           "type": "typecast",
           "named": true
         },
@@ -1672,6 +1736,25 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "struct_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "field_values",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1736,6 +1819,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct_literal",
           "named": true
         },
         {
@@ -1808,6 +1895,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct_literal",
           "named": true
         },
         {

@@ -434,6 +434,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "struct_literal"
+        },
+        {
+          "type": "SYMBOL",
           "name": "array_literal"
         },
         {
