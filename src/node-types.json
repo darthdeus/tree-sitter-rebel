@@ -299,10 +299,6 @@
             "named": true
           },
           {
-            "type": "struct_literal",
-            "named": true
-          },
-          {
             "type": "typecast",
             "named": true
           },
