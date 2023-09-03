@@ -1,0 +1,78 @@
+=========================
+Basic if
+=========================
+
+fn f() {
+    if true {
+        println(5);
+    }
+}
+
+---
+
+(source_file
+  (function
+    (identifier)
+    (parameter_list)
+    (block
+      (if
+        (identifier)
+        (block
+          (statement
+            (function_call
+              (identifier) (number))))))))
+
+=========================
+Basic assignment with a comment friend
+=========================
+
+fn f() {
+    // if true {
+    // }
+
+    x = x + x_inc;
+}
+
+
+---
+
+(source_file
+  (function
+    (identifier)
+    (parameter_list)
+    (block
+      (statement
+        (comment))
+      (statement
+        (comment))
+      (statement
+        (assignment
+          (identifier)
+          (binary_op
+            (identifier)
+            (bin_op)
+            (identifier)))))))
+
+=========================
+Basic if with a real friend
+=========================
+
+fn f() {
+    if true {
+    }
+
+    f();
+}
+
+
+---
+
+(source_file
+  (function
+    (identifier)
+    (parameter_list)
+    (block
+      (statement
+        (if (identifier)))
+      (statement
+        (function_call (identifier))))))

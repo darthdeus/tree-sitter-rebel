@@ -20,10 +20,6 @@
           "named": true
         },
         {
-          "type": "condition",
-          "named": true
-        },
-        {
           "type": "enum_variant",
           "named": true
         },
@@ -37,6 +33,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if",
           "named": true
         },
         {
@@ -95,10 +95,6 @@
           "named": true
         },
         {
-          "type": "condition",
-          "named": true
-        },
-        {
           "type": "enum_variant",
           "named": true
         },
@@ -112,6 +108,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if",
           "named": true
         },
         {
@@ -179,10 +179,6 @@
           "named": true
         },
         {
-          "type": "condition",
-          "named": true
-        },
-        {
           "type": "enum_variant",
           "named": true
         },
@@ -196,6 +192,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if",
           "named": true
         },
         {
@@ -254,10 +254,6 @@
             "named": true
           },
           {
-            "type": "condition",
-            "named": true
-          },
-          {
             "type": "enum_variant",
             "named": true
           },
@@ -271,6 +267,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if",
             "named": true
           },
           {
@@ -323,98 +323,6 @@
     "type": "comment",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "condition",
-    "named": true,
-    "fields": {
-      "condition": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "array_literal",
-            "named": true
-          },
-          {
-            "type": "binary_op",
-            "named": true
-          },
-          {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "condition",
-            "named": true
-          },
-          {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
-            "type": "field_access",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "index",
-            "named": true
-          },
-          {
-            "type": "method_call",
-            "named": true
-          },
-          {
-            "type": "number",
-            "named": true
-          },
-          {
-            "type": "paren_expr",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "typecast",
-            "named": true
-          },
-          {
-            "type": "unary_op",
-            "named": true
-          }
-        ]
-      },
-      "else_branch": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "block",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "block",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "enum",
@@ -551,10 +459,6 @@
             "named": true
           },
           {
-            "type": "condition",
-            "named": true
-          },
-          {
             "type": "enum_variant",
             "named": true
           },
@@ -568,6 +472,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if",
             "named": true
           },
           {
@@ -637,10 +545,6 @@
           "named": true
         },
         {
-          "type": "condition",
-          "named": true
-        },
-        {
           "type": "enum_variant",
           "named": true
         },
@@ -654,6 +558,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if",
           "named": true
         },
         {
@@ -845,10 +753,6 @@
           "named": true
         },
         {
-          "type": "condition",
-          "named": true
-        },
-        {
           "type": "enum_variant",
           "named": true
         },
@@ -862,6 +766,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if",
           "named": true
         },
         {
@@ -978,10 +886,6 @@
             "named": true
           },
           {
-            "type": "condition",
-            "named": true
-          },
-          {
             "type": "enum_variant",
             "named": true
           },
@@ -995,6 +899,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if",
             "named": true
           },
           {
@@ -1031,6 +939,98 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "if",
+    "named": true,
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array_literal",
+            "named": true
+          },
+          {
+            "type": "binary_op",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "enum_variant",
+            "named": true
+          },
+          {
+            "type": "field_access",
+            "named": true
+          },
+          {
+            "type": "function_call",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if",
+            "named": true
+          },
+          {
+            "type": "index",
+            "named": true
+          },
+          {
+            "type": "method_call",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "paren_expr",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "typecast",
+            "named": true
+          },
+          {
+            "type": "unary_op",
+            "named": true
+          }
+        ]
+      },
+      "else_branch": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1088,10 +1088,6 @@
             "named": true
           },
           {
-            "type": "condition",
-            "named": true
-          },
-          {
             "type": "enum_variant",
             "named": true
           },
@@ -1105,6 +1101,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if",
             "named": true
           },
           {
@@ -1158,10 +1158,6 @@
             "named": true
           },
           {
-            "type": "condition",
-            "named": true
-          },
-          {
             "type": "enum_variant",
             "named": true
           },
@@ -1175,6 +1171,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if",
             "named": true
           },
           {
@@ -1234,10 +1234,6 @@
           "named": true
         },
         {
-          "type": "condition",
-          "named": true
-        },
-        {
           "type": "enum_variant",
           "named": true
         },
@@ -1255,6 +1251,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if",
           "named": true
         },
         {
@@ -1363,10 +1363,6 @@
             "named": true
           },
           {
-            "type": "condition",
-            "named": true
-          },
-          {
             "type": "enum_variant",
             "named": true
           },
@@ -1380,6 +1376,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if",
             "named": true
           },
           {
@@ -1433,10 +1433,6 @@
             "named": true
           },
           {
-            "type": "condition",
-            "named": true
-          },
-          {
             "type": "enum_variant",
             "named": true
           },
@@ -1450,6 +1446,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if",
             "named": true
           },
           {
@@ -1561,10 +1561,6 @@
           "named": true
         },
         {
-          "type": "condition",
-          "named": true
-        },
-        {
           "type": "enum_variant",
           "named": true
         },
@@ -1578,6 +1574,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if",
           "named": true
         },
         {
@@ -1641,10 +1641,6 @@
           "named": true
         },
         {
-          "type": "condition",
-          "named": true
-        },
-        {
           "type": "enum_variant",
           "named": true
         },
@@ -1658,6 +1654,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if",
           "named": true
         },
         {
@@ -1767,10 +1767,6 @@
           "named": true
         },
         {
-          "type": "condition",
-          "named": true
-        },
-        {
           "type": "enum_variant",
           "named": true
         },
@@ -1788,6 +1784,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if",
           "named": true
         },
         {
@@ -1912,10 +1912,6 @@
           "named": true
         },
         {
-          "type": "condition",
-          "named": true
-        },
-        {
           "type": "enum_variant",
           "named": true
         },
@@ -1933,6 +1929,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if",
           "named": true
         },
         {
@@ -2000,10 +2000,6 @@
           "named": true
         },
         {
-          "type": "condition",
-          "named": true
-        },
-        {
           "type": "enum_variant",
           "named": true
         },
@@ -2017,6 +2013,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if",
           "named": true
         },
         {
@@ -2089,10 +2089,6 @@
             "named": true
           },
           {
-            "type": "condition",
-            "named": true
-          },
-          {
             "type": "enum_variant",
             "named": true
           },
@@ -2106,6 +2102,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if",
             "named": true
           },
           {

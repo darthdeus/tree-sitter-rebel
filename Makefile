@@ -13,14 +13,15 @@ endif
 # FILE=examples/class_methods.rbl
 # FILE=examples/methods.rbl
 # FILE=examples/comments.rbl
-FILE=examples/if.rbl
+# FILE=examples/if.rbl
+FILE=examples/line.rbl
 # FILE=examples/fn.rbl
 # FILE=examples/big.rbl
 # FILE=examples/err.rbl
 
 default: test
 # default: test-parse
-default: install
+# default: install
 # default: highlight
 # default: both
 # default: simple

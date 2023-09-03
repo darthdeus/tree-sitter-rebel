@@ -450,7 +450,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "condition"
+          "name": "if"
         }
       ]
     },
@@ -518,7 +518,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "condition"
+            "name": "if"
           }
         ]
       }
@@ -858,7 +858,7 @@
         }
       ]
     },
-    "condition": {
+    "if": {
       "type": "SEQ",
       "members": [
         {

@@ -121,8 +121,28 @@ module.exports = grammar({
         $.array_literal,
         $.enum_variant,
         $.block,
-        $.condition,
+        $.if,
       ),
+
+    // _expression_no_if: ($) =>
+    //   choice(
+    //     $.identifier,
+    //     $.number,
+    //     $.string,
+    //     $.function_call,
+    //     $.unary_op,
+    //     $.binary_op,
+    //     $.typecast,
+    //     $.field_access,
+    //     $.method_call,
+    //     $.index,
+    //     $.paren_expr,
+    //     $.struct_literal,
+    //     $.array_literal,
+    //     $.enum_variant,
+    //     $.block,
+    //     $.if,
+    //   ),
 
     _expression_no_struct: ($) =>
       prec(
@@ -143,7 +163,7 @@ module.exports = grammar({
           $.array_literal,
           $.enum_variant,
           $.block,
-          $.condition,
+          $.if,
         ),
       ),
 
@@ -171,6 +191,7 @@ module.exports = grammar({
         $.for,
         $.while,
         $.comment,
+        // $.if,
         seq(
           choice($._expression, $.return, $.let, $.assignment, $.macro_expr),
           ";",
@@ -204,7 +225,7 @@ module.exports = grammar({
         "}",
       ),
 
-    condition: ($) =>
+    if: ($) =>
       seq(
         "if",
         field("condition", $._expression_no_struct),

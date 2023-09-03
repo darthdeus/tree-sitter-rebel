@@ -1,0 +1,6 @@
+fn draw_line_bresenham() {
+    if true {
+    }
+    x = x + x_inc;
+}
+
